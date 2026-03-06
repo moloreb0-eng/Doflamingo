@@ -1,0 +1,9 @@
+# Backend files (not needed for Netlify)
+node_modules/
+data/
+dist/
+uploads/
+
+# Workspace files
+.DS_Store
+*.code-workspace

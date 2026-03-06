@@ -1,0 +1,131 @@
+/* ══════════════════════════════════════
+   DOFLAMINGO — MAIN STYLESHEET
+   Light Neon / Graffiti Bazaar Theme
+   
+   SECTIONS:
+   1. Font Import (Oswald + Black Ops One)
+   2. Reset (box-sizing, margin, padding)
+   3. Body & Background Image
+   4. Keyframe Animations (sprayIn, slideL, popSharp, badgePop, trackerFill, pulseStep)
+   5. Animation Utility Classes
+   6. Sharp Card (clip-path polygon corners)
+   7. Button Styles
+   8. Raw Input (text fields)
+   9. Scrollbar (custom WebKit)
+══════════════════════════════════════ */
+
+/* ── 1. Font Import — Oswald (UI text) + Black Ops One (logo/headings) ── */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Black+Ops+One&display=swap');
+
+/* ── 2. Reset — normalize box model across all elements ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── 3. Body & Background ── */
+body {
+  background-color: #F2EEFF;
+  font-family: 'Oswald', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── 4. Keyframe Animations ── */
+
+/* sprayIn — card / modal entrance (scale + skew) */
+@keyframes sprayIn {
+  0%   { opacity: 0; transform: scale(.87) skewX(-5deg); }
+  100% { opacity: 1; transform: scale(1) skewX(0); }
+}
+
+/* slideL — slide-in from left */
+@keyframes slideL {
+  0%   { opacity: 0; transform: translateX(-28px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* popSharp — bouncy pop-in (rotate + scale) */
+@keyframes popSharp {
+  0%   { opacity: 0; transform: scale(.72) rotate(-4deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+/* badgePop — cart badge pulse */
+@keyframes badgePop {
+  0%, 100% { transform: scale(1) rotate(-4deg); }
+  50%      { transform: scale(1.18) rotate(-4deg); }
+}
+
+/* trackerFill — order tracker progress bar fill */
+@keyframes trackerFill {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+/* pulseStep — glow pulse on active tracker step */
+@keyframes pulseStep {
+  0%, 100% { box-shadow: 0 0 0 0 currentColor; }
+  50%      { box-shadow: 0 0 0 6px transparent; }
+}
+
+/* ── 5. Animation Utility Classes (applied via className in React) ── */
+.spray-in  { animation: sprayIn  .4s cubic-bezier(.22,1,.36,1) both; }
+.slide-l   { animation: slideL   .35s ease both; }
+.pop-sharp { animation: popSharp .35s cubic-bezier(.34,1.56,.64,1) both; }
+
+/* ── 6. Sharp Card — diagonal-cut corners via clip-path ── */
+.sharp-card {
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.sharp-card:hover {
+  transform: translate(-3px, -3px);              /* lift effect on hover */
+}
+
+.sharp-sm {
+  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 9px 100%, 0 calc(100% - 9px));
+}
+
+/* ── 7. Button — Oswald uppercase, clip-path corners ── */
+.btn {
+  border: none;
+  cursor: pointer;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  transition: transform .12s, box-shadow .12s;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+.btn:hover  { transform: translate(-2px, -2px); }
+.btn:active { transform: translate(1px, 1px); box-shadow: none !important; }
+
+/* ── 8. Raw Input — text field with neon focus glow ── */
+.raw-input {
+  background: #F2EEFF;
+  color: #1C0B3A;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: .95rem;
+  letter-spacing: .05em;
+  padding: .6rem .9rem;
+  width: 100%;
+  outline: none;
+  border: 2.5px solid #E2D6FF;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  transition: border-color .15s, box-shadow .15s;
+}
+.raw-input:focus {
+  border-color: #9B30FF;
+  box-shadow: 0 0 0 3px rgba(155, 48, 255, .12);   /* purple neon glow */
+}
+.raw-input::placeholder {
+  color: #9585B8;
+}
+
+/* ── 9. Custom Scrollbar (WebKit only) ── */
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: #F2EEFF; }
+::-webkit-scrollbar-thumb { background: #FF2D8A; }            /* hot pink thumb */
