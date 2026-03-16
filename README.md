@@ -115,4 +115,42 @@ You can also use the **Source Control** panel (the branch icon in the Activity B
 
 ---
 
+## 🤖 Enabling GitHub Copilot Pro in VS Code
+
+GitHub Copilot Pro gives you AI-powered code suggestions directly inside VS Code. Follow these steps to activate it using your GitHub account.
+
+### Prerequisites
+- You must have an active **GitHub Copilot Pro** (or Copilot Individual/Business) subscription.  
+  If you don't have one yet, subscribe at [github.com/features/copilot](https://github.com/features/copilot).
+- Your GitHub account must already be connected to VS Code (see **Step 1** above).
+
+### Step 1 – Install the GitHub Copilot Extension
+1. Open VS Code.
+2. Click the **Extensions** icon in the Activity Bar (or press **Ctrl+Shift+X** / **Cmd+Shift+X**).
+3. Search for **GitHub Copilot**.
+4. Click **Install** on the extension published by **GitHub**.
+5. *(Recommended)* Also install **GitHub Copilot Chat** for the conversational AI sidebar.
+
+### Step 2 – Sign in with Your GitHub Account
+1. After the extension installs, a sign-in prompt will appear in the bottom-right corner — click **Sign in to GitHub**.
+2. If no prompt appears, click the **Accounts** icon (bottom-left Activity Bar) and choose **Sign in with GitHub to use GitHub Copilot**.
+3. A browser window will open — log in and click **Authorize GitHub Copilot Plugin**.
+4. Return to VS Code. You should see a ✅ Copilot icon in the status bar at the bottom, confirming it is active.
+
+### Step 3 – Verify Copilot is Working
+1. Open any file in this project (e.g., `app.js`).
+2. Start typing a comment or a new line of code — Copilot will suggest completions in grey text.
+3. Press **Tab** to accept a suggestion, or **Esc** to dismiss it.
+4. To open Copilot Chat, click the **chat bubble** icon in the Activity Bar or press **Ctrl+Alt+I** / **Cmd+Alt+I**.
+
+### Troubleshooting
+| Problem | Solution |
+|---------|----------|
+| Copilot icon is red or missing | Click the Accounts icon → sign out and sign back in |
+| "Not authorized" error | Make sure your GitHub account has an active Copilot subscription at [github.com/settings/copilot](https://github.com/settings/copilot) |
+| Suggestions not appearing | Check that Copilot is enabled: `View → Command Palette → GitHub Copilot: Enable` |
+| Wrong GitHub account signed in | Click Accounts icon → sign out → sign in with the correct account |
+
+---
+
 **Built for Netlify** • Ready to deploy in seconds ⚡
